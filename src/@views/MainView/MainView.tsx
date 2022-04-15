@@ -1,5 +1,4 @@
-// https://stackoverflow.com/questions/67909356/is-there-any-way-to-fetch-all-the-responses-stored-in-api-slice-rtk-query
-import { Container } from '@mui/material';
+import { Container, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import React from 'react';
 import { useAppDispatch } from '../../@store/configureStore';
@@ -9,7 +8,38 @@ const MainView = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ flexGrow: 1 }}>MainView</Box>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid
+          container
+          spacing={3}
+          //  style={{ padding: 3 }}
+        >
+          <Grid item xs={12}>
+            <Box sx={{ mb: 1 }}>
+              <Paper elevation={3}>
+                {/* <Search /> */}
+                search
+              </Paper>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={1}>
+              <Paper elevation={3}>
+                {/* <CurrentWeather /> */}
+                CurrentWeather
+              </Paper>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box mb={1}>
+              <Paper elevation={3}>
+                {/* <Forecast /> */}
+                Forecast
+              </Paper>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 };
