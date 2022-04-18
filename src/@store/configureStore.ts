@@ -2,7 +2,9 @@
 import { combineReducers, configureStore, Reducer } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { createLogger } from 'redux-logger';
+import { forecastReducer, forecastSlice } from './forecast/slice';
 import { uiReducer, uiSlice } from './ui/slice';
+import { сoordinatesReducer, сoordinatesSlice } from './сoordinates/slice';
 // import { RESET_STATE_ACTION_TYPE } from './actions/resetState';
 
 const logger = createLogger({
@@ -10,11 +12,8 @@ const logger = createLogger({
 });
 
 const reducers = {
-  //   [modalSlice.name]: modalReducer,
-  //   [pokemonApi.reducerPath]: pokemonApi.reducer,
-  // [coinsSlice.name]: coinsReducer,
-  // [cryptoApi.reducerPath]: cryptoApi.reducer,
-  // [picturesApi.reducerPath]: picturesApi.reducer,
+  [сoordinatesSlice.name]: сoordinatesReducer,
+  [forecastSlice.name]: forecastReducer,
   [uiSlice.name]: uiReducer,
 };
 
