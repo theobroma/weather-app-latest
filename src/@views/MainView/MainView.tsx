@@ -1,10 +1,27 @@
 import { Container, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
-import React from 'react';
-import { useAppDispatch } from '../../@store/configureStore';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
+import { getForecastTC } from '../../@store/forecast/slice';
+import { сoordinatesSelector } from '../../@store/сoordinates/selectors';
+import { setUserCoordinatesTC } from '../../@store/сoordinates/slice';
 
 const MainView = () => {
   const dispatch = useAppDispatch();
+  const { lon, lat } = useAppSelector(сoordinatesSelector);
+
+  useEffect(() => {
+    if (lat === null && lon === null) {
+      dispatch(setUserCoordinatesTC());
+    }
+  }, [lat, lon, dispatch]);
+
+  useEffect(() => {
+    const days = 3; // Limited for free plan
+    if (lat !== null && lon !== null) {
+      dispatch(getForecastTC({ days }));
+    }
+  }, [lat, lon, dispatch]);
 
   return (
     <Container maxWidth="lg">
