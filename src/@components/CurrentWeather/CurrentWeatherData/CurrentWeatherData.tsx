@@ -8,23 +8,25 @@ import {
 import { Grid } from '@mui/material';
 import React from 'react';
 import { CurrentWeatherType } from '../../../@types';
+import ConditionItem from './ConditionItem';
 import CurrentWeatherTemperature from './CurrentWeatherTemperature';
 
 type Props = {
   currentWeather: CurrentWeatherType;
 };
 
-const CurrentWeatherData: React.FC<Props> = ({
-  currentWeather: {
-    temp_c,
-    condition,
-    last_updated,
-    humidity,
-    wind_kph,
-    wind_dir,
-    gust_kph,
-  },
-}) => {
+const CurrentWeatherData = (props: Props) => {
+  const {
+    currentWeather: {
+      temp_c,
+      condition,
+      last_updated,
+      humidity,
+      wind_kph,
+      wind_dir,
+      gust_kph,
+    },
+  } = props;
   const updateDate = new Date(last_updated);
   const currentWeekday = { weekday: 'long' } as const;
   const currentDate = {
@@ -46,7 +48,7 @@ const CurrentWeatherData: React.FC<Props> = ({
         </Grid>
         <Grid item xs={12} md={6}>
           <div>
-            {/* <ConditionItem title="Today:" icon={faCalendarAlt}>
+            <ConditionItem title="Today:" icon={faCalendarAlt}>
               {last_updated_weekday} {last_updated_date}
             </ConditionItem>
             <ConditionItem title="Feels Like:" icon={faTemperatureHigh}>
@@ -60,11 +62,10 @@ const CurrentWeatherData: React.FC<Props> = ({
             </ConditionItem>
             <ConditionItem title="Gust:" icon={faBacon}>
               {gust_kph}
-            </ConditionItem> */}
+            </ConditionItem>
           </div>
         </Grid>
       </Grid>
-      <div />
     </div>
   );
 };
