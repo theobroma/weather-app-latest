@@ -11,14 +11,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-const useStyles = makeStyles()({
+const useStyles = makeStyles()((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
-    // [theme.breakpoints.down('sm')]: {
-    //   alignItems: 'flex-start',
-    //   flexDirection: 'column',
-    // },
+    [theme.breakpoints.down('sm')]: {
+      alignItems: 'flex-start',
+      flexDirection: 'column',
+    },
   },
   title: {
     marginLeft: 10,
@@ -28,7 +28,7 @@ const useStyles = makeStyles()({
     display: 'flex',
     alignItems: 'center',
   },
-});
+}));
 
 const ConditionItem = ({ title, icon, children }: Props) => {
   const { classes } = useStyles();
