@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { forecastSelector } from '../../@store/forecast/selectors';
 import GridProgress from '../UI/GridProgress';
+import CurrentWeatherData from './CurrentWeatherData';
 import Location from './Location';
 
 const CurrentWeather = () => {
@@ -14,7 +15,7 @@ const CurrentWeather = () => {
       <GridProgress container spacing={1} loading={isFetching}>
         <Grid item xs={12}>
           {location.name && <Location location={location} />}
-          {/* <CurrentWeatherData currentWeather={currentWeather} /> */}
+          <CurrentWeatherData currentWeather={currentWeather} />
         </Grid>
       </GridProgress>
     </Box>

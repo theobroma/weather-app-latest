@@ -5,11 +5,8 @@ type GridProgressProps = {
   loading: boolean;
 } & GridProps;
 
-const GridProgress = ({
-  loading,
-  children,
-  ...gridProps
-}: GridProgressProps) => {
+const GridProgress = (props: GridProgressProps) => {
+  const { loading, children, ...gridProps } = props;
   return (
     <Grid {...gridProps}>
       {loading ? (
