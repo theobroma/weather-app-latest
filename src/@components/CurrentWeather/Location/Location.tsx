@@ -1,3 +1,5 @@
+import { Typography } from '@mui/material';
+import { makeStyles } from 'tss-react/mui';
 import React from 'react';
 
 type Props = {
@@ -8,11 +10,21 @@ type Props = {
   };
 };
 
+const useStyles = makeStyles()({
+  title: {
+    fontSize: 30,
+    fontWeight: 300,
+  },
+});
+
 const Location = (props: Props) => {
   const { location } = props;
+  const { classes } = useStyles();
   return (
     <div>
-      {location.name}, {location.region}, {location.country}
+      <Typography className={classes.title} component="h2" variant="h6">
+        {location.name}, {location.region}, {location.country}
+      </Typography>
     </div>
   );
 };
