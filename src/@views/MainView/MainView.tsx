@@ -2,6 +2,7 @@ import { Container, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { useEffect } from 'react';
 import CurrentWeather from '../../@components/CurrentWeather';
+import Forecast from '../../@components/Forecast';
 import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
 import { getForecastTC } from '../../@store/forecast/slice';
 import { сoordinatesSelector } from '../../@store/сoordinates/selectors';
@@ -51,8 +52,8 @@ const MainView = () => {
           <Grid item xs={12}>
             <Box mb={1}>
               <Paper elevation={3}>
-                {/* <Forecast /> */}
-                Forecast
+                {/* Forecast */}
+                <Forecast />
               </Paper>
             </Box>
           </Grid>
