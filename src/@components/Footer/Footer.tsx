@@ -24,7 +24,7 @@ const Footer = () => {
             // edge="start"
             color="inherit"
             target="__blank"
-            href="https://github.com/theobroma/cryptoverse-mui-v5"
+            href="https://github.com/theobroma/weather-app-next"
             data-testid="github-link"
             aria-label="Github Link"
           >
