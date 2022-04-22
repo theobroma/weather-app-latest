@@ -1,6 +1,7 @@
 import { Container, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { useEffect } from 'react';
+import AppSearch from '../../@components/AppSearch';
 import CurrentWeather from '../../@components/CurrentWeather';
 import Forecast from '../../@components/Forecast';
 import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
@@ -36,8 +37,8 @@ const MainView = () => {
           <Grid item xs={12}>
             <Box sx={{ mb: 1 }}>
               <Paper elevation={3}>
-                {/* <Search /> */}
-                search
+                {/* Search */}
+                <AppSearch />
               </Paper>
             </Box>
           </Grid>
