@@ -1,16 +1,18 @@
+import SearchIcon from '@mui/icons-material/Search';
 import {
   Box,
   FormControl,
+  InputAdornment,
   InputLabel,
   OutlinedInput,
-  InputAdornment,
 } from '@mui/material';
-import React, { useState, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
 import { makeStyles } from 'tss-react/mui';
 import useDebounce from '../../@hooks/useDebounce';
+import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
 import { getForecastTC } from '../../@store/forecast/slice';
 import { searchDataSelector } from '../../@store/search/selectors';
+import { clearDataAC, searchTC } from '../../@store/search/slice';
 import { setCoordinatesAC } from '../../@store/сoordinates/slice';
 import SearchOutput from './SearchOutput';
 
@@ -23,27 +25,27 @@ const useStyles = makeStyles()({
 });
 
 const AppSearch = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { classes } = useStyles();
-  const searchData = useSelector(searchDataSelector);
+  const searchData = useAppSelector(searchDataSelector);
   const [searchVal, setSearchVal] = useState('');
   const debouncedSearchTerm = useDebounce(searchVal, 300);
 
-  //   const onPlaceClick = useCallback(
-  //     (lat: number, lon: number) => {
-  //       dispatch(setCoordinatesAC({ lat, lon }));
-  //       const days = 3; // Limited for free plan
-  //       dispatch(getForecastTC({ days }));
-  //       dispatch(clearDataAC());
-  //       setSearchVal('');
-  //     },
-  //     [dispatch],
-  //   );
+  const onPlaceClick = useCallback(
+    (lat: number, lon: number) => {
+      dispatch(setCoordinatesAC({ lat, lon }));
+      const days = 3; // Limited for free plan
+      dispatch(getForecastTC({ days }));
+      dispatch(clearDataAC());
+      setSearchVal('');
+    },
+    [dispatch],
+  );
 
-  //   useEffect(() => {
-  //     // API response only for 3 characters
-  //     if (debouncedSearchTerm.length > 2) dispatch(searchTC(debouncedSearchTerm));
-  //   }, [debouncedSearchTerm, dispatch]);
+  useEffect(() => {
+    // API response only for 3 characters
+    if (debouncedSearchTerm.length > 2) dispatch(searchTC(debouncedSearchTerm));
+  }, [debouncedSearchTerm, dispatch]);
 
   const handleChange = () => (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchVal(event.currentTarget.value.trim());
@@ -54,23 +56,24 @@ const AppSearch = () => {
       <FormControl fullWidth variant="outlined">
         <InputLabel htmlFor="search-input">Search</InputLabel>
         <OutlinedInput
+          // need for correct styles. Same text as in InputLabel
+          label="Search"
           id="search-input"
           value={searchVal}
           onChange={handleChange()}
-          //   startAdornment={
-          //     <InputAdornment position="start">
-          //       <SearchIcon />
-          //     </InputAdornment>
-          //   }
-          //   labelWidth={60}
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          }
         />
       </FormControl>
 
-      {/* {searchData.length > 0 && (
+      {searchData.length > 0 && (
         <div className={classes.outputWrap}>
           <SearchOutput searchData={searchData} onClick={onPlaceClick} />
         </div>
-      )} */}
+      )}
     </Box>
   );
 };

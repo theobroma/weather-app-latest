@@ -83,6 +83,7 @@ const PersistentDrawerLeft = ({ children }: { children?: React.ReactNode }) => {
     <Box sx={{ display: 'flex' }} className="HolyGrail-content">
       <AppBar position="fixed" open={open}>
         <Toolbar>
+          {/* DO NOT DELETE. USE WITH ROUTES */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -93,7 +94,7 @@ const PersistentDrawerLeft = ({ children }: { children?: React.ReactNode }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Pixabay Images
+            Weather App
           </Typography>
         </Toolbar>
       </AppBar>
