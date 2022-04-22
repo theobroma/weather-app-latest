@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem, Typography } from '@material-ui/core';
+import { List, ListItem, Typography } from '@mui/material';
 import { useStyles } from './SearchOutput.styles';
 import { SearchPlaceItemType } from '../../../@types';
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const SearchOutput: React.FC<Props> = ({ searchData = [], onClick }) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <List className={classes.root} aria-labelledby="nested-list-subheader">

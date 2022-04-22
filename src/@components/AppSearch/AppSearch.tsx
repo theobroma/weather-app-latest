@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from 'tss-react/mui';
 import useDebounce from '../../@hooks/useDebounce';
 import { getForecastTC } from '../../@store/forecast/slice';
+import { searchDataSelector } from '../../@store/search/selectors';
 import { setCoordinatesAC } from '../../@store/сoordinates/slice';
 import SearchOutput from './SearchOutput';
 
@@ -23,7 +24,7 @@ const useStyles = makeStyles()({
 
 const AppSearch = () => {
   const dispatch = useDispatch();
-  const classes = useStyles();
+  const { classes } = useStyles();
   const searchData = useSelector(searchDataSelector);
   const [searchVal, setSearchVal] = useState('');
   const debouncedSearchTerm = useDebounce(searchVal, 300);
@@ -56,20 +57,20 @@ const AppSearch = () => {
           id="search-input"
           value={searchVal}
           onChange={handleChange()}
-          startAdornment={
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          }
-          labelWidth={60}
+          //   startAdornment={
+          //     <InputAdornment position="start">
+          //       <SearchIcon />
+          //     </InputAdornment>
+          //   }
+          //   labelWidth={60}
         />
       </FormControl>
 
-      {searchData.length > 0 && (
+      {/* {searchData.length > 0 && (
         <div className={classes.outputWrap}>
           <SearchOutput searchData={searchData} onClick={onPlaceClick} />
         </div>
-      )}
+      )} */}
     </Box>
   );
 };
