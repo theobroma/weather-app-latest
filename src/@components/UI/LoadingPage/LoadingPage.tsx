@@ -1,7 +1,7 @@
 import { Backdrop, CircularProgress } from '@mui/material';
 import React from 'react';
 
-export const LoadingPage: React.FC = () => {
+export const LoadingPage = () => {
   return (
     <Backdrop
       sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}

@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../@store/configureStore';
 import { forecastSelector } from '../../@store/forecast/selectors';
 import GridProgress from '../UI/GridProgress';
 import CurrentWeatherData from './CurrentWeatherData';
@@ -8,7 +8,7 @@ import Location from './Location';
 
 const CurrentWeather = () => {
   const { location, currentWeather, isFetching } =
-    useSelector(forecastSelector);
+    useAppSelector(forecastSelector);
 
   return (
     <Box p={3}>
