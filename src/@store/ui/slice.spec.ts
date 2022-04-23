@@ -1,9 +1,9 @@
-import { ThemeColorsType } from '../../@types';
+import { ThemeColors, ThemeColorsType } from '../../@types';
 import { setThemeAC, uiReducer } from './slice';
 
 describe('counter reducer sync actions', () => {
   const initialState = {
-    theme: 'light' as ThemeColorsType,
+    theme: ThemeColors.LIGHT,
   };
 
   it('should handle initial state', () => {
