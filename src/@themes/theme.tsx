@@ -47,6 +47,42 @@ const DARK_THEME = {
   },
 };
 
+const DEEP_PURPLE_AMBER_THEME = {
+  palette: {
+    mode: 'light' as PaletteMode,
+    background: {
+      paper: '#f5f5f5', // Gray 100 - Background of "Paper" based component
+      default: '#FFFFFF',
+    },
+    primary: {
+      main: '#673ab7',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#ffd740',
+      contrastText: '#000',
+    },
+  },
+};
+
+const PINK_BLUE_GREY_THEME = {
+  palette: {
+    mode: 'dark' as PaletteMode,
+    background: {
+      paper: '#424242', // Gray 800 - Background of "Paper" based component
+      default: '#303030',
+    },
+    primary: {
+      main: '#e91e63', // Green 300
+      contrastText: '#000000',
+    },
+    secondary: {
+      main: '#607d8b', // Orange 300
+      contrastText: '#000',
+    },
+  },
+};
+
 const AppThemeProvider = ({ children }: { children?: React.ReactNode }) => {
   // const currentTheme = useSelector(themeSelector);
   // const theme = createTheme(themeMap[currentTheme]);
