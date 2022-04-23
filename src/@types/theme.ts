@@ -1,3 +1,4 @@
+// https://stackoverflow.com/questions/40275832/typescript-has-unions-so-are-enums-redundant
 export enum THEME_COLORS {
   DARK = 'dark',
   LIGHT = 'light',
