@@ -1,20 +1,21 @@
-import React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import HomeIcon from '@mui/icons-material/Home';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import HomeIcon from '@mui/icons-material/Home';
+import MenuIcon from '@mui/icons-material/Menu';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import { styled, useTheme } from '@mui/material/styles';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import React from 'react';
 import ListItemLink from './ListItemLink';
+import ThemeMenu from './ThemeMenu';
 
 const drawerWidth = 240;
 
@@ -96,6 +97,9 @@ const PersistentDrawerLeft = ({ children }: { children?: React.ReactNode }) => {
           <Typography variant="h6" noWrap component="div">
             Weather App
           </Typography>
+          <Box sx={{ flexGrow: 1 }} />
+          {/* Theme Menu */}
+          <ThemeMenu />
         </Toolbar>
       </AppBar>
       <Drawer
