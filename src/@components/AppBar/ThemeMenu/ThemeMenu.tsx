@@ -2,7 +2,9 @@ import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { Box, IconButton, Menu, MenuItem } from '@mui/material';
+import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
+import { useNonInitialEffect } from '../../../@hooks/useNonInitialEffect';
 import { useAppDispatch, useAppSelector } from '../../../@store/configureStore';
 import { themeSelector } from '../../../@store/ui/selectors';
 import { setThemeAC } from '../../../@store/ui/slice';
@@ -17,6 +19,7 @@ const options = [
 
 const ThemeMenu = () => {
   const dispatch = useAppDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const currentTheme = useAppSelector(themeSelector);
   const [selectedIndex, setSelectedIndex] = useState(
@@ -47,6 +50,13 @@ const ThemeMenu = () => {
     setAnchorEl(null);
     // handleMobileMenuClose();
   };
+
+  useNonInitialEffect(() => {
+    enqueueSnackbar(`Theme changed to ${currentTheme}`, {
+      variant: 'warning',
+    });
+  }, [enqueueSnackbar, currentTheme]);
+
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu

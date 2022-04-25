@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { store } from './@store/configureStore';
 import AppThemeProvider from './@themes/theme';
 import { AppContainer } from './@routes/AppContainer';
+import SnackBarProvider from './@components/UI/SnackBar';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
@@ -20,7 +21,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <AppThemeProvider>
-        <AppContainer />
+        <SnackBarProvider>
+          <AppContainer />
+        </SnackBarProvider>
       </AppThemeProvider>
     </Provider>
   </React.StrictMode>,
