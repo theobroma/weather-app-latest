@@ -1,6 +1,11 @@
 import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
+import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { Box, IconButton, Menu, MenuItem } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../@store/configureStore';
+import { themeSelector } from '../../../@store/ui/selectors';
+import { setThemeAC } from '../../../@store/ui/slice';
 import { ThemeColorsType } from '../../../@types';
 
 const options = [
@@ -11,10 +16,24 @@ const options = [
 ] as ThemeColorsType[];
 
 const ThemeMenu = () => {
+  const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const currentTheme = useAppSelector(themeSelector);
+  const [selectedIndex, setSelectedIndex] = useState(
+    options.indexOf(currentTheme),
+  );
 
   const isMenuOpen = Boolean(anchorEl);
   //   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleMenuItemClick = (
+    event: React.MouseEvent<HTMLElement>,
+    index: number,
+  ) => {
+    setSelectedIndex(index);
+    dispatch(setThemeAC(options[index]));
+    setAnchorEl(null);
+  };
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -33,7 +52,7 @@ const ThemeMenu = () => {
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: 'top',
+        vertical: 'bottom',
         horizontal: 'right',
       }}
       id={menuId}
@@ -45,8 +64,27 @@ const ThemeMenu = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {options.map((option, index) => (
+        <MenuItem
+          key={option}
+          // disabled={index === 0}
+          selected={index === selectedIndex}
+          onClick={(event) => handleMenuItemClick(event, index)}
+        >
+          {index === selectedIndex ? (
+            <RadioButtonCheckedIcon
+              fontSize="small"
+              style={{ marginRight: '8px' }}
+            />
+          ) : (
+            <RadioButtonUncheckedIcon
+              fontSize="small"
+              style={{ marginRight: '8px' }}
+            />
+          )}
+          {option}
+        </MenuItem>
+      ))}
     </Menu>
   );
   return (
