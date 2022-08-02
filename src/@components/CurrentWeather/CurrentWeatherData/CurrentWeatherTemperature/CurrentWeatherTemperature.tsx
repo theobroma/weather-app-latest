@@ -1,6 +1,8 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { makeStyles } from 'tss-react/mui';
+
+import { Box, Typography } from '@mui/material';
+
 import { ConditionType } from '../../../../@types';
 
 const useStyles = makeStyles()({

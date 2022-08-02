@@ -1,7 +1,7 @@
 // https://www.newline.co/@bespoyasov/how-to-use-thunks-with-redux-toolkit-and-typescript--1e65fc64
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { searchAPI } from '../../@api/search-api';
 
+import { searchAPI } from '../../@api/search-api';
 import {
   SearchPlaceResponseSchema,
   SearchPlaceResponseType,

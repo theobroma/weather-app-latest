@@ -1,8 +1,9 @@
+import React from 'react';
+import { makeStyles } from 'tss-react/mui';
+
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, CardContent, Typography } from '@mui/material';
-import React from 'react';
-import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   root: {

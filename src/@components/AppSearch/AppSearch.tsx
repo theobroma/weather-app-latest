@@ -1,3 +1,6 @@
+import React, { useCallback, useEffect, useState } from 'react';
+import { makeStyles } from 'tss-react/mui';
+
 import SearchIcon from '@mui/icons-material/Search';
 import {
   Box,
@@ -6,14 +9,14 @@ import {
   InputLabel,
   OutlinedInput,
 } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
-import { makeStyles } from 'tss-react/mui';
+
 import useDebounce from '../../@hooks/useDebounce';
 import { useAppDispatch, useAppSelector } from '../../@store/configureStore';
 import { getForecastTC } from '../../@store/forecast/slice';
 import { searchDataSelector } from '../../@store/search/selectors';
 import { clearDataAC, searchTC } from '../../@store/search/slice';
 import { setCoordinatesAC } from '../../@store/сoordinates/slice';
+
 import SearchOutput from './SearchOutput';
 
 const useStyles = makeStyles()({

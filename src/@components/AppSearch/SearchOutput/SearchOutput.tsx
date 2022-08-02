@@ -1,7 +1,10 @@
 import React from 'react';
+
 import { List, ListItem, Typography } from '@mui/material';
-import { useStyles } from './SearchOutput.styles';
+
 import { SearchPlaceItemType } from '../../../@types';
+
+import { useStyles } from './SearchOutput.styles';
 
 interface Props {
   searchData: SearchPlaceItemType[];

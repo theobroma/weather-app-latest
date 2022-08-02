@@ -1,6 +1,7 @@
-import { Typography } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import React from 'react';
+import { makeStyles } from 'tss-react/mui';
+
+import { Typography } from '@mui/material';
 
 type Props = {
   location: {

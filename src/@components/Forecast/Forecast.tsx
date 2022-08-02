@@ -1,12 +1,15 @@
+import React from 'react';
+
 import { Box, Grid, Typography } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
-import React from 'react';
+
 import { useAppSelector } from '../../@store/configureStore';
 import {
   forecastdaySelector,
   forecastSelector,
 } from '../../@store/forecast/selectors';
 import GridProgress from '../UI/GridProgress/GridProgress';
+
 import ForecastDay from './ForecastDay';
 
 const Forecast = () => {
