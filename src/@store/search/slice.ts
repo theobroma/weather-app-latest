@@ -2,10 +2,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { searchAPI } from '../../@api/search-api';
-import {
-  SearchPlaceResponseSchema,
-  SearchPlaceResponseType,
-} from '../../@types';
+import type { SearchPlaceResponseType } from '../../@types';
+import { SearchPlaceResponseSchema } from '../../@types';
 
 const searchInitialState = {
   data: [] as SearchPlaceResponseType,

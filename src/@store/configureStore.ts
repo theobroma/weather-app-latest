@@ -1,8 +1,10 @@
 // example - https://github.com/theobroma/rtk-query-toptal-example/blob/41ea72e4ad62ff6ec4a1e2a8f84b17301f7577e0/src/shared/redux/store.ts
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import type { TypedUseSelectorHook } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createLogger } from 'redux-logger';
 
-import { combineReducers, configureStore, Reducer } from '@reduxjs/toolkit';
+import type { Reducer } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
 import { forecastReducer, forecastSlice } from './forecast/slice';
 import { searchReducer, searchSlice } from './search/slice';

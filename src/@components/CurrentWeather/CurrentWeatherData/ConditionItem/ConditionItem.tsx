@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Typography } from '@mui/material';
 

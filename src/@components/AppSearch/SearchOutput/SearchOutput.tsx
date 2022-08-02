@@ -1,6 +1,6 @@
 import { List, ListItem, Typography } from '@mui/material';
 
-import { SearchPlaceItemType } from '../../../@types';
+import type { SearchPlaceItemType } from '../../../@types';
 
 import { useStyles } from './SearchOutput.styles';
 

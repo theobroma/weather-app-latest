@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Grid } from '@mui/material';
 
-import { CurrentWeatherType } from '../../../@types';
+import type { CurrentWeatherType } from '../../../@types';
 
 import ConditionItem from './ConditionItem';
 import CurrentWeatherTemperature from './CurrentWeatherTemperature';
