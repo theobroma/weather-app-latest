@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Box, CircularProgress, Grid, GridProps } from '@mui/material';
 
 type GridProgressProps = {

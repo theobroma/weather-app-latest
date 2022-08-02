@@ -1,4 +1,3 @@
-import React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';

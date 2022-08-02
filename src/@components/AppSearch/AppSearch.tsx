@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import * as React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
 import SearchIcon from '@mui/icons-material/Search';

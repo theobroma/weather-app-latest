@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { Container, Grid, Paper } from '@mui/material';
 import Box from '@mui/material/Box';

@@ -1,5 +1,5 @@
 // https://ozzie.sh/passing-icons-as-props-in-a-consistent-way-using-react
-import React from 'react';
+import * as React from 'react';
 import { makeStyles } from 'tss-react/mui';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
