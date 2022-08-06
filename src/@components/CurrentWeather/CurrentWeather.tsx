@@ -15,7 +15,7 @@ const CurrentWeather = () => {
     <Box p={3}>
       <GridProgress container spacing={1} loading={isFetching}>
         <Grid item xs={12}>
-          {location.name && <Location location={location} />}
+          {!!location.name && <Location location={location} />}
           <CurrentWeatherData currentWeather={currentWeather} />
         </Grid>
       </GridProgress>
