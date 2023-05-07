@@ -49,3 +49,7 @@ pnpm lint
     "deploy": "netlify deploy -p"
   },
 ```
+
+## :link: Usefull links
+
+- [NPM to PNPM migration guide](https://dev.to/andreychernykh/yarn-npm-to-pnpm-migration-guide-2n04)

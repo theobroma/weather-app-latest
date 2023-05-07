@@ -3,6 +3,37 @@
   "version": "0.1.0",
   "private": false,
   "license": "ISC",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false --verbose --runInBand",
+    "coverage": "pnpm test --coverage",
+    "eject": "react-scripts eject",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,yml,json,css,scss,md}",
+    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "serve": "serve -s build",
+    "predeploy": "pnpm build",
+    "deploy": "netlify deploy -p",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
     "@emotion/react": "^11.10.5",
@@ -19,57 +50,26 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.2.0",
-    "@types/node": "^18.x",
-    "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.8",
-    "@types/react-redux": "^7.1.24",
-    "@types/redux-logger": "^3.0.9",
     "@welldone-software/why-did-you-render": "^7.0.1",
     "axios": "^1.x",
     "notistack": "^2.x",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.x",
+    "react-dom": "^18.x",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "redux-logger": "^3.0.6",
     "tss-react": "^4.4.1",
-    "typescript": "~4.8.4",
+    "typescript": "~4.9.5",
     "zod": "^3.19.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --verbose --runInBand",
-    "coverage": "pnpm test --coverage",
-    "eject": "react-scripts eject",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,yml,json,css,scss,md}",
-    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
-    "serve": "serve -s build",
-    "predeploy": "pnpm build",
-    "deploy": "netlify deploy -p",
-    "preinstall": "npx only-allow pnpm"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.x",
+    "@types/react": "^18.x",
+    "@types/react-dom": "^18.x",
+    "@types/react-redux": "^7.1.24",
+    "@types/redux-logger": "^3.0.9",
     "eslint": "^8.x",
     "eslint-config-airbnb-typescript-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",
