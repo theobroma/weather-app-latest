@@ -12,8 +12,8 @@
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,yml,json,css,scss,md}",
     "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "serve": "serve -s build",
-    "predeploy": "pnpm build",
-    "deploy": "netlify deploy -p",
+    "prenetlify": "pnpm build",
+    "netlify": "netlify deploy -p",
     "preinstall": "npx only-allow pnpm"
   },
   "browserslist": {
