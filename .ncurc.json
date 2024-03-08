@@ -1,5 +1,10 @@
 {
   "reject": [
-    "@types/node"
+    "@types/node",
+    "@reduxjs/toolkit",
+    " @types/react-redux",
+    " @types/redux-logger",
+    "prettier",
+    "react-redux"
   ]
 }
